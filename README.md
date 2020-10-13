@@ -50,7 +50,22 @@ Android 平台中没有直接使用 Class 文件格式，因为早期的 Anrdroi
 
 <a name="JEMJH"></a>
 ### ArtMethod结构体
-Art运行时，会把Class加载到内存中，从dex中读取方法，以ArtMethod对象数组的形式存放在内存中。<br />ArtMethod5.0地址在runtime/mirror/art_method.h中。不同版本的结构是有差异的
+Art运行时，会把Class加载到内存中，从dex中读取方法，以ArtMethod对象数组的形式存放在内存中。<br />ArtMethod7.0地址在art/runtime/art_method.h中。不同版本的结构是有差异的
+```cpp
+class ArtMethod {
+            uint32_t declaring_class_;
+            uint32_t access_flags_;
+            uint32_t dex_code_item_offset_;
+            uint32_t dex_method_index_;
+            uint16_t method_index_;uint16_t hotness_count_;
+            struct PtrSizedFields {
+                ArtMethod **dex_cache_resolved_methods_;
+                void *dex_cache_resolved_types_;
+                void *entry_point_from_jni_;
+                void *entry_point_from_quick_compiled_code_;
+            } ptr_sized_fields_;
+};
+```
 <a name="9ak12"></a>
 ### ArtMethodArray
 art/runtime/class_linker.cc
