@@ -101,7 +101,7 @@ LengthPrefixedArray<ArtMethod>* ClassLinker::AllocArtMethodArray(Thread* self,
 1. 想办法拿到这个Java方法所代表的ArtMethod对象
 1. 取出其entrypoint，然后跳转到此处开始执行
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/1305846/1602567334253-13991a65-dd92-4901-b606-d961d14c84cc.png#align=left&display=inline&height=859&margin=%5Bobject%20Object%5D&name=image.png&originHeight=859&originWidth=1200&size=489443&status=done&style=none&width=1200)
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ea60f8a22394c32a0661f0b8e68626f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
 
 # 方法替换过程解析
 这里我们以Andfix中ArtMethod替换为例来分析，实际的替换是在native层完成的。
